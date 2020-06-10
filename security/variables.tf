@@ -1,7 +1,13 @@
-variable "vpc_name" {
-  description = "Name of the VPC to create."
+variable "vpc_id" {
+  description = "VPC ID."
   type        = string
-  default     = "modtest1"
+  default     = ""
+}
+
+variable "vpc_name" {
+  description = "VPC Name."
+  type        = string
+  default     = ""
 }
 
 variable "region" {
@@ -10,8 +16,8 @@ variable "region" {
   default     = "us-south"
 }
 
-variable "resource_group_name" {
-  description = "The Resource group that resources will get provisioned in to."
+variable "resource_group_id" {
+  description = "The Resource group ID inherited from toot module."
   type        = string
   default     = ""
 }

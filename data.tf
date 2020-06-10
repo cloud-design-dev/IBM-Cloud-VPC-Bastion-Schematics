@@ -11,5 +11,5 @@ data "ibm_is_ssh_key" "ssh_key" {
 }
 
 data "ibm_is_image" "web_image_name" {
- name = var.web_image_name
+  name = var.web_image_name
 }
