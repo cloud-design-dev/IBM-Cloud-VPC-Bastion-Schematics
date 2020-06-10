@@ -1,7 +1,7 @@
 resource "ibm_is_instance" "web_instances" {
   count   = var.instance_count
   name    = "${module.vpc.name}-web-${count.index + 1}-instance"
-  image   = nodule.vpc.default_image
+  image   = module.vpc.default_image
   profile = var.web_image_name
 
   primary_network_interface {
