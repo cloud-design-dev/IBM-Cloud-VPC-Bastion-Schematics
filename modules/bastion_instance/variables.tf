@@ -16,3 +16,47 @@ variable "domain" {
   type        = string
   default     = "cdetesting.com"
 }
+
+variable "bastion_subnet_id" {
+  description = ""
+  type        = string
+  default     = ""
+}
+
+variable "bastion_sg_id" {
+  description = ""
+  type        = string
+  default     = ""
+}
+
+variable "ssh_key_name" {
+  description = ""
+  type        = string
+  default     = ""
+}
+
+variable "region" {
+  description = ""
+  type        = string
+  default     = ""
+}
+
+variable "resource_group_name" {
+  description = "Name of Resource Group used as Data source"
+  type        = string
+  default     = ""
+}
+
+
+variable "vpc_name" {
+  description = "VPC Name."
+  type        = string
+  default     = ""
+}
+
+variable "vpc_id" {
+  description = "VPC ID."
+  type        = string
+  default     = ""
+}
+

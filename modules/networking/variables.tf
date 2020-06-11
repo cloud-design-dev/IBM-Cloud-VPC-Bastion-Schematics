@@ -1,5 +1,5 @@
-variable "vpc" {
-  description = "VPC ID to use for deploying resources."
+variable "vpc_id" {
+  description = "ID of VPC."
   type        = string
   default     = ""
 }
@@ -10,8 +10,14 @@ variable "region" {
   default     = "us-south"
 }
 
-variable "resource_group" {
+variable "resource_group_name" {
   description = "The Resource group ID inherited from toot module."
+  type        = string
+  default     = ""
+}
+
+variable "vpc_name" {
+  description = "Name of VPC. Used in naming resources."
   type        = string
   default     = ""
 }

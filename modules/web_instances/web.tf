@@ -15,5 +15,5 @@ resource "ibm_is_instance" "web_instances" {
   vpc       = module.vpc.vpc_id
   zone      = "${module.vpc.region}-1"
   keys      = [data.ibm_is_ssh_key.ssh_key.id]
-  user_data = file("web_install.yml")
+  user_data = file("${path.module}/web_install.yml")
 }
