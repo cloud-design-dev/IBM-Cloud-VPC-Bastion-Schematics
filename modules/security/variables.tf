@@ -1,11 +1,5 @@
-variable "vpc_id" {
+variable "vpc" {
   description = "VPC ID."
-  type        = string
-  default     = ""
-}
-
-variable "vpc_name" {
-  description = "VPC Name."
   type        = string
   default     = ""
 }
@@ -16,8 +10,14 @@ variable "region" {
   default     = "us-south"
 }
 
-variable "resource_group_id" {
+variable "resource_group" {
   description = "The Resource group ID inherited from toot module."
+  type        = string
+  default     = ""
+}
+
+variable "vpc_name" {
+  description = "VPC Name."
   type        = string
   default     = ""
 }
