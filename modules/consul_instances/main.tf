@@ -15,5 +15,5 @@ resource "ibm_is_instance" "consul" {
   vpc       = var.vpc_id
   zone      = "${var.region}-2"
   keys      = [data.ibm_is_ssh_key.ssh_key.id]
-  user_data = file("${path.module}/consul_install.sh")
+  user_data = file("${path.module}/web_install.yml")
 }

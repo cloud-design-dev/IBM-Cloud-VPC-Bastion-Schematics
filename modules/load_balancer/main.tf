@@ -34,3 +34,12 @@ resource "ibm_is_lb_pool_member" "consul_pool_members_zone1" {
   target_address = "${element(var.consul_subnets[*], count.index)}"
   depends_on     = [ibm_is_lb_pool.consul_lb_pool]
 }
+
+resource "ibm_is_lb_listener_policy" "lb_listener_policy" {
+  lb        = ibm_is_lb.consul_lb.id
+  listener  = ibm_is_lb_listener.consul_listener.listener_id
+  action    = "forward"
+  priority  = 1
+  name      = "${var.vpc_name}-listener-policy"
+  target_id = ibm_is_lb_pool.consul_lb_pool.id
+}
