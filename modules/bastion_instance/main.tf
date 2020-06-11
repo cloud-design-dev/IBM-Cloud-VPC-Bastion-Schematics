@@ -9,7 +9,7 @@ resource "ibm_is_instance" "bastion_instance" {
   }
 
   resource_group = data.ibm_resource_group.default.id
-  tags           = ["ryantiffany", var.vpc_name]
+  tags           = ["ryantiffany", var.vpc_name, "bastion"]
 
   vpc       = var.vpc_id
   zone      = "${var.region}-1"

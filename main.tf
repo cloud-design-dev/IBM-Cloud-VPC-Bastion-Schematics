@@ -54,3 +54,13 @@ module "consul_instances" {
   private_sg_id       = module.security.private_sg_id
 }
 
+module "load_balancer" {
+  source              = "./modules/load_balancer"
+  vpc_name            = var.vpc_name
+  consul_count        = module.consul_instances.consul_count
+  region              = var.region
+  resource_group_name = var.resource_group_name
+  consul_subnet_id    = module.networking.consul_subnet_id
+  consul_subnets      = module.consul_instances.consul_instance_ips
+}
+
