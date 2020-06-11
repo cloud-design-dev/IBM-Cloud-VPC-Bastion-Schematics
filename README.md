@@ -2,15 +2,18 @@
 Repo used to test IBM Cloud Schematics and IBM Cloud VPC resources in module form
 # Deploy a VPC Bastion Host using Schematics
 
+## Current Deployment Diagram
+![][1]
+
 ## Customizing
 If you want to change the default variables you may need access to the VPC API to pull latest stock images and profiles that are valid for the region you are deploying in to.
 
-1. ### Launch Cloud Shell
-You can launch your cloud shell instance by clicking on the [Cloud Shell](https://cloud.ibm.com/shell) link from portal navigation bar. 
+### 1. Launch Cloud Shell
+You can launch your cloud shell instance by clicking on the [Cloud Shell][2] link from portal navigation bar. 
 
-![Cloud Shell Icon](https://dsc.cloud/quickshare/Shared-Image-2020-06-08-14-13-04.png)
+![Cloud Shell Icon][image-1]
 
-2. ### Set Region and Generation
+### 2. Set Region and Generation
 Once your Cloud Shell instance spins up you will need to set your default region and VPC generation. This code example has only been tested with VPC Gen 2 architecture. 
 
 ```shell
@@ -18,7 +21,7 @@ ibmcloud is target us-south
 ibmcloud is target --gen 2
 ```
 
-3. ### List images 
+### 3. List images
 With the region and generation set we can now list out the available images. 
 
 ```shell
@@ -42,8 +45,13 @@ ibm-windows-server-2012-r2-full-standard-amd64-3
 ibm-windows-server-2016-full-standard-amd64-3
 ```
 
-4. ### List Instance Profiles
+### 4. List Instance Profiles
 
 ```shell
 ibmcloud is in-prs
 ```
+
+[1]:	images/current-deployment.png.png "Current VPC Deployment"
+[2]:	https://cloud.ibm.com/shell
+
+[image-1]:	https://dsc.cloud/quickshare/Shared-Image-2020-06-08-14-13-04.png
