@@ -20,7 +20,6 @@ variable "vpc_name" {
 
 
 variable "consul_subnets" {
-  default = ""
 }
 
 

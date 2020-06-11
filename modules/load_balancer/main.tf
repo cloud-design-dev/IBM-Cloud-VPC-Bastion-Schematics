@@ -26,11 +26,11 @@ resource "ibm_is_lb_pool" "consul_lb_pool" {
   depends_on         = [ibm_is_lb_listener.consul_listener]
 }
 
-# resource "ibm_is_lb_pool_member" "consul_pool_members_zone1" {
-#   count          = var.consul_count
-#   lb             = ibm_is_lb.consul_lb.id
-#   pool           = ibm_is_lb_pool.consul_lb_pool.id
-#   port           = "80"
-#   target_address = "192.168.0.1"
-#   depends_on     = [ibm_is_lb_listener.consul_lb_pool]
-# }
+resource "ibm_is_lb_pool_member" "consul_pool_members_zone1" {
+  count          = var.consul_count
+  lb             = ibm_is_lb.consul_lb.id
+  pool           = ibm_is_lb_pool.consul_lb_pool.id
+  port           = "80"
+  target_address = "${element(var.consul_subnets[*], count.index)}"
+  depends_on     = [ibm_is_lb_pool.consul_lb_pool]
+}
