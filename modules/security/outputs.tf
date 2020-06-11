@@ -1,4 +1,4 @@
-output "maintenance_sg_id" {
+output "private_sg_id" {
     value = ibm_is_security_group.vpc_secure_maintenance_sg.id
 }
 

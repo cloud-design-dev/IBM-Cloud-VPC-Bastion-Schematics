@@ -32,10 +32,13 @@ module "bastion_instance" {
   bastion_sg_id       = module.security.bastion_sg_id
 }
 
-# module "web_instances" {
-#   source       = "./web_instances"
-#     region              = var.region
-#   vpc_name            = var.vpc_name
-#   resource_group_name = var.resource_group_name
-#   ssh_key_name = var.ssh_key_name
-# }
+module "web_instances" {
+  source              = "./modules/web_instances"
+  vpc_name            = var.vpc_name
+  vpc_id              = module.vpc.id
+  region              = var.region
+  resource_group_name = var.resource_group_name
+  ssh_key_name        = var.ssh_key_name
+  private_subnet_id   = module.networking.private_subnet_id
+  private_sg_id       = module.security.private_sg_id
+}
