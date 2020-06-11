@@ -42,3 +42,15 @@ module "web_instances" {
   private_subnet_id   = module.networking.private_subnet_id
   private_sg_id       = module.security.private_sg_id
 }
+
+module "consul_instances" {
+  source              = "./modules/consul_instances"
+  vpc_name            = var.vpc_name
+  vpc_id              = module.vpc.id
+  region              = var.region
+  resource_group_name = var.resource_group_name
+  ssh_key_name        = var.ssh_key_name
+  consul_subnet_id    = module.networking.consul_subnet_id
+  private_sg_id       = module.security.private_sg_id
+}
+

@@ -1,5 +1,5 @@
-data "ibm_is_image" "web_image_name" {
-  name = var.web_image_name
+data "ibm_is_image" "consul_image_name" {
+  name = var.consul_image_name
 }
 
 data "ibm_resource_group" "default" {
