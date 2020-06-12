@@ -9,3 +9,4 @@ output "vpc_name" {
 # output "consul_instance_ips" {
 #   value = module.consul_instances.consul_instance_ips
 # }
+

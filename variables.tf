@@ -21,9 +21,3 @@ variable "resource_group_name" {
   description = "Default Resource Group."
   default     = ""
 }
-
-variable "default_instance_profile" {
-  type        = string
-  description = "Default Instance profile Group."
-  default     = ""
-}
