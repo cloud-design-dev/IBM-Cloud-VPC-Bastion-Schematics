@@ -88,27 +88,27 @@ resource "ibm_is_security_group_rule" "vpc_secure_maintenance_sg_ssh_inbound" {
   }
 }
 
-resource "ibm_is_security_group_rule" "vpc_secure_maintenance_sg_ssh_http" {
-  depends_on = [ibm_is_security_group.vpc_secure_maintenance_sg]
-  group      = ibm_is_security_group.vpc_secure_maintenance_sg.id
-  direction  = "inbound"
-  remote     = ibm_is_security_group.vpc_secure_bastion_sg.id
-  tcp {
-    port_min = "80"
-    port_max = "80"
-  }
-}
+# resource "ibm_is_security_group_rule" "vpc_secure_maintenance_sg_ssh_http" {
+#   depends_on = [ibm_is_security_group.vpc_secure_maintenance_sg]
+#   group      = ibm_is_security_group.vpc_secure_maintenance_sg.id
+#   direction  = "inbound"
+#   remote     = ibm_is_security_group.vpc_secure_bastion_sg.id
+#   tcp {
+#     port_min = "80"
+#     port_max = "80"
+#   }
+# }
 
-resource "ibm_is_security_group_rule" "vpc_secure_bastion_sg_ssh_outbound" {
-  depends_on = [ibm_is_security_group.vpc_secure_bastion_sg]
-  group      = ibm_is_security_group.vpc_secure_bastion_sg.id
-  direction  = "outbound"
-  remote     = ibm_is_security_group.vpc_secure_maintenance_sg.id
-  tcp {
-    port_min = "22"
-    port_max = "22"
-  }
-}
+# resource "ibm_is_security_group_rule" "vpc_secure_bastion_sg_ssh_outbound" {
+#   depends_on = [ibm_is_security_group.vpc_secure_bastion_sg]
+#   group      = ibm_is_security_group.vpc_secure_bastion_sg.id
+#   direction  = "outbound"
+#   remote     = ibm_is_security_group.vpc_secure_maintenance_sg.id
+#   tcp {
+#     port_min = "22"
+#     port_max = "22"
+#   }
+# }
 
 resource "ibm_is_security_group_rule" "vpc_secure_bastion_sg_tcp_dns_outbound" {
   depends_on = [ibm_is_security_group.vpc_secure_bastion_sg]
@@ -116,6 +116,17 @@ resource "ibm_is_security_group_rule" "vpc_secure_bastion_sg_tcp_dns_outbound" {
   direction  = "outbound"
   remote     = "0.0.0.0/0"
   tcp {
+    port_min = "53"
+    port_max = "53"
+  }
+}
+
+resource "ibm_is_security_group_rule" "vpc_secure_bastion_sg_udp_dns_outbound" {
+  depends_on = [ibm_is_security_group.vpc_secure_bastion_sg]
+  group      = ibm_is_security_group.vpc_secure_bastion_sg.id
+  direction  = "outbound"
+  remote     = "0.0.0.0/0"
+  udp {
     port_min = "53"
     port_max = "53"
   }
