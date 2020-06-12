@@ -7,10 +7,9 @@ module "vpc" {
 
 module "zone_1" {
   source              = "./modules/zones/zone1"
-  vpc                 = module.vpc.name
+  vpc_name            = module.vpc.name
   resource_group_name = var.resource_group_name
   zone                = module.vpc.zone1
-  name                = "bastion"
 }
 
 # module "zone_2" {
