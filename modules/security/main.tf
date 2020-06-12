@@ -109,3 +109,14 @@ resource "ibm_is_security_group_rule" "vpc_secure_bastion_sg_ssh_outbound" {
     port_max = "22"
   }
 }
+
+resource "ibm_is_security_group_rule" "vpc_secure_bastion_sg_tcp_dns_outbound" {
+  depends_on = [ibm_is_security_group.vpc_secure_bastion_sg]
+  group      = ibm_is_security_group.vpc_secure_bastion_sg.id
+  direction  = "outbound"
+  remote     = "0.0.0.0/0"
+  tcp {
+    port_min = "53"
+    port_max = "53"
+  }
+}

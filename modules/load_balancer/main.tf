@@ -43,3 +43,12 @@ resource "ibm_is_lb_listener_policy" "lb_listener_policy" {
   name      = "${var.vpc_name}-listener-policy"
   target_id = ibm_is_lb_pool.consul_lb_pool.id
 }
+
+resource "ibm_is_lb_listener_policy_rule" "lb_listener_policy_rule" {
+  lb        = ibm_is_lb.consul_lb.id
+  listener  = ibm_is_lb_listener.consul_listener.listener_id
+  policy    = ibm_is_lb_listener_policy.lb_listener_policy.policy_id
+  condition = "equals"
+  type      = "path"
+  value     = "/"
+}
