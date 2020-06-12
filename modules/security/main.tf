@@ -88,6 +88,17 @@ resource "ibm_is_security_group_rule" "vpc_secure_maintenance_sg_ssh_inbound" {
   }
 }
 
+resource "ibm_is_security_group_rule" "vpc_secure_maintenance_sg_ssh_http" {
+  depends_on = [ibm_is_security_group.vpc_secure_maintenance_sg]
+  group      = ibm_is_security_group.vpc_secure_maintenance_sg.id
+  direction  = "inbound"
+  remote     = ibm_is_security_group.vpc_secure_bastion_sg.id
+  tcp {
+    port_min = "80"
+    port_max = "80"
+  }
+}
+
 resource "ibm_is_security_group_rule" "vpc_secure_bastion_sg_ssh_outbound" {
   depends_on = [ibm_is_security_group.vpc_secure_bastion_sg]
   group      = ibm_is_security_group.vpc_secure_bastion_sg.id

@@ -31,7 +31,7 @@ resource "ibm_is_lb_pool_member" "consul_pool_members_zone1" {
   lb             = ibm_is_lb.consul_lb.id
   pool           = ibm_is_lb_pool.consul_lb_pool.id
   port           = "80"
-  target_address = "${element(var.consul_subnets[*], count.index)}"
+  target_address = element(var.consul_subnets[*], count.index)
   depends_on     = [ibm_is_lb_pool.consul_lb_pool]
 }
 
