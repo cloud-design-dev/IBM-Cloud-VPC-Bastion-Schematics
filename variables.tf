@@ -1,13 +1,13 @@
 variable "vpc_name" {
   description = "Name of the VPC to create."
   type        = string
-  default     = "localhost"
+  default     = ""
 }
 
 variable "region" {
   description = "IBM Cloud region to deploy VPC resources. Currently supported regions: eu-de, eu-gb, us-east, us-south. Default is us-south."
   type        = string
-  default     = "us-south"
+  default     = ""
 }
 
 variable "ssh_key_name" {
@@ -22,3 +22,8 @@ variable "resource_group_name" {
   default     = ""
 }
 
+variable "default_instance_profile" {
+  type        = string
+  description = "Default Instance profile Group."
+  default     = ""
+}

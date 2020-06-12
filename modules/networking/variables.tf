@@ -1,13 +1,7 @@
-variable "vpc_id" {
-  description = "ID of VPC."
-  type        = string
-  default     = ""
-}
-
 variable "region" {
   description = "IBM Cloud region to deploy VPC resources. Currently supported regions: eu-de, eu-gb, us-east, us-south. Default is us-south."
   type        = string
-  default     = "us-south"
+  default     = ""
 }
 
 variable "resource_group_name" {
@@ -16,7 +10,7 @@ variable "resource_group_name" {
   default     = ""
 }
 
-variable "vpc_name" {
+variable "vpc" {
   description = "Name of VPC. Used in naming resources."
   type        = string
   default     = ""

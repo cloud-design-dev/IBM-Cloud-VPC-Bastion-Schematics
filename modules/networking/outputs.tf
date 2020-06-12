@@ -1,12 +1,12 @@
 output "bastion_subnet_id" {
-  value = ibm_is_subnet.vpc_secure_bastion_subnet.id
+  value = ibm_is_subnet.z1_bastion_subnet.id
 }
 
-output "private_subnet_id" {
-  value = ibm_is_subnet.vpc_secure_private_subnet.id
+output "web_private_subnet_id" {
+  value = ibm_is_subnet.z1_private_web_subnet.id
 }
 
 
-output "consul_subnet_id" {
-  value = ibm_is_subnet.consul_subnet.id
+output "consul_private_subnet_id" {
+  value = ibm_is_subnet.z2_private_consul_subnet.id
 }
