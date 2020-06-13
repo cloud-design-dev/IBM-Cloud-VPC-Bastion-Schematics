@@ -10,6 +10,7 @@ module "zone_1" {
   vpc_name            = module.vpc.name
   resource_group_name = var.resource_group_name
   zone                = module.vpc.zone1
+  ssh_key             = data.ibm_is_ssh_key.ssh_key.id
 }
 
 # module "zone_2" {

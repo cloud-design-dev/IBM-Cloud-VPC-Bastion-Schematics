@@ -5,3 +5,7 @@ data "ibm_resource_group" "default" {
 data "ibm_is_vpc" "vpc" {
   name = var.vpc_name
 }
+
+data "ibm_is_image" "default" {
+  name = var.default_instance_image
+}

@@ -16,3 +16,26 @@ variable "vpc_name" {
   default     = ""
 }
 
+variable "default_instance_profile" {
+  description = "Default size/type of compute instance"
+  type        = string
+  default     = "cx2-2x4"
+}
+
+variable "default_instance_image" {
+  description = "Default OS image of compute instance"
+  type        = string
+  default     = "ibm-ubuntu-18-04-1-minimal-amd64-1"
+}
+
+variable "instance_count" {
+  description = "Number of instances to deploy."
+  type        = string
+  default     = "3"
+}
+
+variable "ssh_key" {
+  description = "ID of SSH key to add to instances."
+  type        = string
+  default     = ""
+}

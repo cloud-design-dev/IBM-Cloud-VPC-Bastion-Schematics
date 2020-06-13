@@ -9,3 +9,12 @@ output "bastion_subnet_id" {
 output "private_subnet_id" {
   value = ibm_is_subnet.private_subnet.id
 }
+
+output "private_instance_ips" {
+  value = ibm_is_instance.private_instance[*].primary_network_interface[0].primary_ipv4_address
+}
+
+output "bastion_floatingip" {
+  value = ibm_is_floating_ip.bastion_floatingip.address
+
+}
