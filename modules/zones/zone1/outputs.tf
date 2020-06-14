@@ -18,3 +18,7 @@ output "bastion_floatingip" {
   value = ibm_is_floating_ip.bastion_floatingip.address
 
 }
+
+output "load_balancer_fqdn" {
+  value = ibm_is_lb.private_instance_lb.hostname
+}
