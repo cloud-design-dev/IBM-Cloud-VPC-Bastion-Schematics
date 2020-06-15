@@ -1,6 +1,6 @@
 variable "instance_ip" {
-  type    = string
-  default = ""
+  default = []
+  type    = list
 
 }
 
