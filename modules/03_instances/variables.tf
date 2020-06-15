@@ -31,7 +31,7 @@ variable "default_instance_image" {
 variable "instance_count" {
   description = "Number of instances to deploy."
   type        = string
-  default     = "3"
+  default     = "1"
 }
 
 variable "ssh_key" {

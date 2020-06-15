@@ -25,6 +25,7 @@ module "bastion_instance" {
 
 module "web_instances" {
   source              = "./modules/03_instances"
+  instance_count      = "3"
   type                = "web"
   vpc_name            = module.vpc.name
   zone                = module.vpc.zone1
@@ -34,13 +35,14 @@ module "web_instances" {
   security_group      = module.networking_security.private_security_group_id
 }
 
-# module "loadbalancer" {
-#   source              = "./modules/04_loadbalancer"
-#   vpc_name            = module.vpc.name
-#   resource_group_name = var.resource_group_name
-#   subnet              = module.networking_security.bastion_subnet_id
-#   instance_ip         = module.web_instances.instance_ip
-# }
+module "loadbalancer" {
+  source              = "./modules/04_loadbalancer"
+  instance_count      = "3"
+  vpc_name            = module.vpc.name
+  resource_group_name = var.resource_group_name
+  instance_ip         = module.web_instances.instance_ip
+  subnet              = module.networking_security.bastion_subnet_id
+}
 
 module "floating_ip" {
   source              = "./modules/05_floating_ip"
