@@ -42,11 +42,9 @@ module "web_instances" {
 #   subnet              = module.networking_security.bastion_subnet_id
 # }
 
-# module "floating_ip" {
-#   source              = "./modules/05_floating_ip"
-#   type                = var.type
-#   vpc_name            = module.vpc.name
-#   zone                = module.vpc.zone1
-#   resource_group_name = var.resource_group_name
-#   instance_network_id
-# }
+module "floating_ip" {
+  source              = "./modules/05_floating_ip"
+  vpc_name            = module.vpc.name
+  zone                = module.vpc.zone1
+  resource_group_name = var.resource_group_name
+}
