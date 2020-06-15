@@ -3,11 +3,11 @@ output "vpc_name" {
 }
 
 
-output "bastion_floatingip" {
-  value = module.zone_1.bastion_floatingip
-}
+# output "bastion_floatingip" {
+#   value = module.zone_1.bastion_floatingip
+# }
 
-output "load_balancer_fqdn" {
-  value = module.zone_1.load_balancer_fqdn
-}
+# output "load_balancer_fqdn" {
+#   value = module.zone_1.load_balancer_fqdn
+# }
 

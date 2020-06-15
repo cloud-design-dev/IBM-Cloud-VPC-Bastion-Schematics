@@ -1,6 +1,6 @@
 resource "ibm_is_lb" "private_instance_lb" {
   name           = "${var.vpc_name}-private-instance-lb"
-  subnets        = [ibm_is_subnet.private_subnet.id]
+  subnets        = [var.subnet_id]
   resource_group = data.ibm_resource_group.default.id
   type           = "private"
   tags           = [var.vpc_name]
@@ -11,7 +11,7 @@ resource "ibm_is_lb_listener" "private_instance_listener" {
   lb         = ibm_is_lb.private_instance_lb.id
   port       = "80"
   protocol   = "http"
-  depends_on = [ibm_is_subnet.private_subnet]
+  depends_on = [ibm_is_lb.private_instance_lb]
 }
 
 resource "ibm_is_lb_pool" "private_instance_pool" {

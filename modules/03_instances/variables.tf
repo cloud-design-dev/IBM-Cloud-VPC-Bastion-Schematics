@@ -39,3 +39,23 @@ variable "ssh_key" {
   type        = string
   default     = ""
 }
+
+variable "subnet" {
+  description = "ID of the subnet to use for instances."
+  type        = string
+  default     = ""
+
+}
+
+variable "security_group" {
+  description = "ID of the security group to use for instances."
+  type        = string
+  default     = ""
+
+}
+
+variable "type" {
+  description = "Type of instance. Used in naming of instances."
+  type        = string
+  default     = ""
+}
