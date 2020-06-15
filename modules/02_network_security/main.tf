@@ -58,6 +58,17 @@ resource "ibm_is_security_group_rule" "z1_bastion_sg_ssh_inbound" {
   }
 }
 
+resource "ibm_is_security_group_rule" "z1_bastion_sg_tcp_update_outbound" {
+  depends_on = [ibm_is_security_group.z1_private_sg]
+  group      = ibm_is_security_group.z1_private_sg.id
+  direction  = "outbound"
+  remote     = "0.0.0.0/0"
+  tcp {
+    port_min = "80"
+    port_max = "80"
+  }
+}
+
 resource "ibm_is_security_group_rule" "z1_private_sg_tcp_dns_outbound" {
   depends_on = [ibm_is_security_group.z1_private_sg]
   group      = ibm_is_security_group.z1_private_sg.id
