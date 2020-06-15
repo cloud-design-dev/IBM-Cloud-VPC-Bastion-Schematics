@@ -11,3 +11,6 @@ output "vpc_name" {
 #   value = module.zone_1.load_balancer_fqdn
 # }
 
+output "web_instance_ips" {
+  value = module.web_instances.instance_ip
+}

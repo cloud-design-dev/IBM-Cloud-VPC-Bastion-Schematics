@@ -38,8 +38,8 @@ module "web_instances" {
 #   source              = "./modules/04_loadbalancer"
 #   vpc_name            = module.vpc.name
 #   resource_group_name = var.resource_group_name
-#   zone                = module.vpc.zone1
 #   subnet              = module.networking_security.bastion_subnet_id
+#   instance_ip         = module.web_instances.instance_ip
 # }
 
 module "floating_ip" {

@@ -1,6 +1,6 @@
 resource "ibm_is_lb" "private_instance_lb" {
   name           = "${var.vpc_name}-private-instance-lb"
-  subnets        = [var.subnet_id]
+  subnets        = [var.subnet]
   resource_group = data.ibm_resource_group.default.id
   type           = "private"
   tags           = [var.vpc_name]
@@ -32,7 +32,7 @@ resource "ibm_is_lb_pool_member" "private_instance_pool_member_zone" {
   lb             = ibm_is_lb.private_instance_lb.id
   pool           = ibm_is_lb_pool.private_instance_pool.id
   port           = "80"
-  target_address = element(ibm_is_instance.private_instance[*].primary_network_interface[0].primary_ipv4_address, count.index)
+  target_address = element(var.instance_ip, count.index)
   depends_on     = [ibm_is_lb_pool.private_instance_pool]
 }
 

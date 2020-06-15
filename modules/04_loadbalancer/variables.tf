@@ -1,4 +1,4 @@
-variable "subnet_id" {
+variable "instance_ip" {
   type    = string
   default = ""
 
@@ -12,4 +12,17 @@ variable "vpc_name" {
 variable "instance_count" {
   type    = string
   default = ""
+}
+
+
+variable "resource_group_name" {
+  description = ""
+  type        = string
+  default     = ""
+}
+
+variable "subnet" {
+  description = ""
+  type        = string
+  default     = ""
 }
