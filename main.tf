@@ -41,7 +41,7 @@ module "loadbalancer" {
   vpc_name            = module.vpc.name
   resource_group_name = var.resource_group_name
   instance_ip         = module.web_instances.instance_ip
-  subnet              = module.networking_security.bastion_subnet_id
+  subnet              = module.networking_security.private_subnet_id
 }
 
 module "floating_ip" {

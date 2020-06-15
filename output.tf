@@ -2,18 +2,9 @@ output "vpc_name" {
   value = module.vpc.name
 }
 
-
-# output "bastion_floatingip" {
-#   value = module.zone_1.bastion_floatingip
-# }
-
-# output "load_balancer_fqdn" {
-#   value = module.zone_1.load_balancer_fqdn
-# }
-
-# output "web_instance_ips" {
-#   value = module.web_instances.instance_ip
-# }
+output "bastion_floatingip" {
+  value = module.floating_ip.bastion_floatingip
+}
 
 output "web_1_ip" {
   value = module.web_instances.instance_ip[0]

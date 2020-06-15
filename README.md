@@ -5,7 +5,7 @@ In this example we will deploy a Bastion host in an IBM Cloud VPC along with som
 ![Zone 1 Diagram][1]
 
 ## Customizing
-If you want to change the default variables you may need access to the VPC API to pull latest stock images and profiles that are valid for the region you are deploying in to.
+If you want to change the default variables you may need access to the VPC API to pull latest stock images and profiles that are valid for the region you are deploying in to. See [Customization](CUSTOMIZATION.md) for guidance. 
 
 [1]:    images/zone1-deployment.png "Zone1 VPC Deployment"
 
