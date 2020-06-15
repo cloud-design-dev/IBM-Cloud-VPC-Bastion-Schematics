@@ -2,6 +2,7 @@ resource "ibm_is_lb" "private_instance_lb" {
   name           = "${var.vpc_name}-private-instance-lb"
   subnets        = [ibm_is_subnet.private_subnet.id]
   resource_group = data.ibm_resource_group.default.id
+  type           = "private"
   tags           = [var.vpc_name]
 }
 

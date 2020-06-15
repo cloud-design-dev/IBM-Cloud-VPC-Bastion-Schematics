@@ -2,7 +2,7 @@
 package_update: true
 package_upgrade: true
 users:
-  - name: ryan
+  - name: deployer
     groups: [ sudo ]
     sudo: [ "ALL=(ALL) NOPASSWD:ALL" ]
     shell: /bin/bash
