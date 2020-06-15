@@ -47,6 +47,6 @@ module "loadbalancer" {
 module "floating_ip" {
   source              = "./modules/05_floating_ip"
   vpc_name            = module.vpc.name
-  zone                = module.vpc.zone1
   resource_group_name = var.resource_group_name
+  network_id          = module.bastion_instance.instance_interfaces[0]
 }

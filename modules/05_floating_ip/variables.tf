@@ -9,8 +9,9 @@ variable "resource_group_name" {
   default     = ""
 }
 
-variable "zone" {
+variable "network_id" {
   type        = string
-  description = "Zone where resources will be deployed."
+  description = "Instance Network ID for fip."
   default     = ""
 }
+
