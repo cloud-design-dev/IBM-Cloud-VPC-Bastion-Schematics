@@ -1,11 +1,3 @@
-# ibmcloud-vpc-schematics-learning
-Repo used to test IBM Cloud Schematics and IBM Cloud VPC resources in module form
-# Deploy a VPC Bastion Host using Schematics
-
-## Current Deployment Diagram
-![][1]
-
-## Customizing
 If you want to change the default variables you may need access to the VPC API to pull latest stock images and profiles that are valid for the region you are deploying in to.
 
 ### 1. Launch Cloud Shell
