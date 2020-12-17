@@ -6,8 +6,8 @@ In this example we will deploy a Bastion host in an IBM Cloud VPC along with som
 
 ## Steps
 1. Make sure you already have an SSH key added to Gen 2 VPC > https://cloud.ibm.com/vpc-ext/compute/sshKeys > Add SSH key. Make you deploy the key in the same region you are deploying the VPC. It should default to us-south. 
-2. Create a new [Schematics Workspace](https://cloud.ibm.com/schematics/workspaces/create). 
-3. After the Workspace is created, you will be prompted to provide your **Terraform template Repository** `https://github.com/greyhoundforty/ibmcloud-vpc-bastion-schematics.git` and **Terraform Version** `terraform_v0.12`. Click Save Template information. 
+2. Click [here](https://cloud.ibm.com/schematics/workspaces/create?repository=https://github.com/greyhoundforty/ibmcloud-vpc-bastion-schematics&terraform_version=terraform_v0.13) to create a new workspace with our Repository pre-populated.
+3. Fill in the Resource Group and add any tags or a description and then click Create.
 4. On the subsequent page fill in the [variables](https://dsc.cloud/quickshare/Shared-Image-2020-06-15-13-32-46.png) and click Save Changes. 
 5. Click Generate plan. 
 6. If Generate works, click Apply plan to actually deploy the VPC and resources. 
